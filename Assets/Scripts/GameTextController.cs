@@ -197,13 +197,16 @@ public class GameTextController : MonoBehaviour
 	
 	void bathroom()
 	{
-		gameText.text = "You're in the bathroom. You see the typical shower, "
-					  + "toilet, and sink you would expect in a hotel room. "
-					  + "You have a toothbrush, toothpaste, soap, shampoo and "
-					  + "gear to shave with. There also happens to be a poster "
-					  + "on the wall. Other than that, there's nothing special "
-					  + "about the bathroom.\n\n"
-					  + "Press B to return to the bedroom.";
+		string startingText = "You're in the bathroom. You see the typical shower, "
+					        + "toilet, and sink you would expect in a hotel room. "
+					        + "You have a toothbrush, toothpaste, soap, shampoo and "
+					        + "gear to shave with. There also happens to be a poster "
+					        + "on the wall. Other than that, there's nothing special "
+					        + "about the bathroom.\n\n"
+					        + "Press B to return to the bedroom.";
+
+		string allVisitedText = "You've gone back to the bathroom to take another look ";
+		gameText.text = (visitedRooms.isAllDone()) ? allVisitedText : startingText;
 		
 		visitedRooms.bathroom = true;
 		if (Input.GetKeyDown(KeyCode.B))
